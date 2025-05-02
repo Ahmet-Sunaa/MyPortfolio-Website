@@ -216,3 +216,13 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--primary);
 }
+
+
+/* Responsive Tasarým */
+@media screen and (max-width: 768px) {
+    .img-class-phone {
+        padding-top:20px;
+        width: 80% !important; 
+    }
+
+}

@@ -7,6 +7,8 @@
         public string PortfolioName { get; set; }
         public string PortfolioDesc { get; set; }
         public string PortfolioCategories { get; set; }
-        public string PortfolioImageUrl { get; set; }
+        public string PortfolioUrl { get; set; }
+        public string PortfolioWebUrl { get; set; }
+        public string PortfolioImage { get; set; }
     }
 }

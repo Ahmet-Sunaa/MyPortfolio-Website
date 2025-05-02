@@ -4,7 +4,8 @@ namespace MyPortfolio_Website.DAL.Entities
 {
     public class User
     {
-        public int AdminID { get; set; }
+
+        public int UserID { get; set; }
         public string UserName { get; set; }
         // Hashlenmiş şifre
         public string PasswordHash { get; set; }

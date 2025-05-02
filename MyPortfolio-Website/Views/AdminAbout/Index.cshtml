@@ -1,0 +1,185 @@
+﻿@Model List<MyPortfolio_Website.DAL.Entities.About>
+
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Hakkında</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Hakkında Güncelleme</div>
+                    </div>
+                    <div class="card-body">
+
+                        <form method="post" action="/AdminAbout/UpdateAbout">
+                            <input type="hidden" name="AboutId" value="@Model[0].AboutId" />
+     
+                            <div class="form-group">
+                                <label for="Title">Ana Başlık</label>
+                                <input type="text" name="Title" value="@Model[0].Title" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description">Açıklama</label>
+                                <input type="text" name="Description" value="@Model[0].Description" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SubTitle1">1. Başlık</label>
+                                    <input type="text" name="Name" value="@Model[0].Name" class="form-control" placeholder="Nakit Ödeme" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SubTitleDescription1">1. Açıklama</label>
+                                    <input type="text" name="NameDesc" value="@Model[0].NameDesc" class="form-control" placeholder="Anında Nakit ödeme" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SubTitle2">2. Başlık</label>
+                                    <input type="text" name="Degree" value="@Model[0].Degree" class="form-control" placeholder="İletişim" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription2">2. Açıklama</label>
+                                    <input type="text" name="DegreeDesc" value="@Model[0].DegreeDesc" class="form-control" placeholder="Anında İletişim" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitle3">3. Başlık</label>
+                                    <input type="text" name="Phone" value="@Model[0].Phone" class="form-control" placeholder="Ucuz" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription3">3. Açıklama</label>
+                                    <input type="text" name="PhoneDesc" value="@Model[0].PhoneDesc" class="form-control" placeholder="Değerinde hurda alma" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitle4">4. Başlık</label>
+                                    <input type="text" name="Adress" value="@Model[0].Adress" class="form-control" placeholder="Hız" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription4">4. Açıklama</label>
+                                    <input type="text" name="AdressDesc" value="@Model[0].AdressDesc" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription4">5. Başlık</label>
+                                    <input type="text" name="Birthday" value="@Model[0].Birthday" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription4">5. Açıklama</label>
+                                    <input type="text" name="Birthdaydesc" value="@Model[0].Birthdaydesc" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">6. Başlık</label>
+                                    <input type="text" name="Experience" value="@Model[0].Experience" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription4">6. Açıklama</label>
+                                    <input type="text" name="ExperienceDesc" value="@Model[0].ExperienceDesc" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">7. Başlık</label>
+                                    <input type="text" name="Email" value="@Model[0].Email" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription4">7. Açıklama</label>
+                                    <input type="text" name="EmailDesc" value="@Model[0].EmailDesc" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">8. Başlık</label>
+                                    <input type="text" name="Freelance" value="@Model[0].Freelance" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                <label for="SubTitleDescription4">8. Açıklama</label>
+                                    <input type="text" name="FreelanceDesc" value="@Model[0].FreelanceDesc" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">1. Alt Başlık</label>
+                                    <input type="text" name="SubArea1" value="@Model[0].SubArea1" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">1. Alt Başlık Açıklama</label>
+                                    <input type="text" name="SubArea2" value="@Model[0].SubArea2" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                                                        <div class="form-group">
+                                    <label for="SubTitleDescription4">2. Alt Başlık</label>
+                                    <input type="text" name="SubArea3" value="@Model[0].SubArea3" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">2. Alt Başlık Açıklama</label>
+                                    <input type="text" name="SubArea4" value="@Model[0].SubArea4" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">3. Alt Başlık</label>
+                                    <input type="text" name="SubArea5" value="@Model[0].SubArea5" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                            <div class="form-group">
+                                    <label for="SubTitleDescription4">3. Alt Başlık Açıklama</label>
+                                    <input type="text" name="SubArea6" value="@Model[0].SubArea6" class="form-control" placeholder="Hızlı işlem" />
+                            </div>
+                 
+                        </form>
+
+                        <div class="form-group">
+                            <button id="updateAboutAjax" class="btn btn-info mt-3">Hakkında Bilgisini Güncelle</button>
+                            <div id="ajaxResponseMessage" class="mt-2" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#updateAboutAjax').click(function () {
+            var aboutData = {
+                AboutId : $('[name="AboutId"]').val(),
+                Title : $('[name="Title"]').val(),
+                Description : $('[name="Description"]').val(),
+                Name : $('[name="Name"]').val(),
+                NameDesc : $('[name="NameDesc"]').val(),
+                Degree : $('[name="Degree"]').val(),
+                DegreeDesc : $('[name="DegreeDesc"]').val(),
+                Phone : $('[name="Phone"]').val(),
+                PhoneDesc : $('[name="PhoneDesc"]').val(),
+                Adress : $('[name="Adress"]').val(),
+                AdressDesc : $('[name="AdressDesc"]').val(),
+                Birthday : $('[name="Birthday"]').val(),
+                Birthdaydesc : $('[name="Birthdaydesc"]').val(),
+                Experience : $('[name="Experience"]').val(),
+                ExperienceDesc : $('[name="ExperienceDesc"]').val(),
+                Email : $('[name="Email"]').val(),
+                EmailDesc : $('[name="EmailDesc"]').val(),
+                Freelance : $('[name="Freelance"]').val(),
+                FreelanceDesc : $('[name="FreelanceDesc"]').val(),
+                SubArea1 : $('[name="SubArea1"]').val(),
+                SubArea2 : $('[name="SubArea2"]').val(),
+                SubArea3 : $('[name="SubArea3"]').val(),
+                SubArea4 : $('[name="SubArea4"]').val(),
+                SubArea5 : $('[name="SubArea5"]').val(),
+                SubArea6 : $('[name="SubArea6"]').val()
+            };
+
+            $.ajax({
+                url: '/AdminAbout/UpdateAboutAjax/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(aboutData),
+                success: function (response) {
+                    var messageDiv = $('#ajaxResponseMessage');
+                    messageDiv.show().removeClass('text-danger text-success')
+                        .addClass(response.success ? 'text-success' : 'text-danger')
+                        .text(response.message);
+                },
+                error: function () {
+                    $('#ajaxResponseMessage').show().removeClass('text-success').addClass('text-danger').text("An error occurred.");
+                }
+            });
+        });
+    });
+</script>

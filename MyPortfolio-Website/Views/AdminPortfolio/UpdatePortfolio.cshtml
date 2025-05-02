@@ -1,0 +1,80 @@
+﻿@model MyPortfolio_Website.DAL.Entities.Portfolio
+
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Portfolio</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Update Portfolio</div>
+                    </div>
+                    <div class="card-body">
+
+                        <form id="updatePortfolioForm" method="post" enctype="multipart/form-data">
+                            <div>
+                                <input type="hidden" name="SkillId" value="@Model.PortfolioId" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Name">Title</label>
+                                <input type="text" name="Title" value="@Model.Title" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description">Portfolio Name</label>
+                                <textarea rows="2" name="PortfolioName" class="form-control">@Model.PortfolioName</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Title">Portfolio Categories</label>
+                                <input type="text" name="PortfolioCategories" value="@Model.PortfolioCategories" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Title">Portfolio Desc</label>
+                                <input type="text" name="PortfolioDesc" value="@Model.PortfolioDesc" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Title">Portfolio Url</label>
+                                <input type="text" name="PortfolioUrl" value="@Model.PortfolioUrl" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Title">Portfolio Canlı Url</label>
+                                <input type="text" name="PortfolioWebUrl" value="@Model.PortfolioWebUrl" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mevcut Resim:</label>
+                                @if (!string.IsNullOrEmpty(Model.PortfolioImage))
+                                {
+                                    <img src="data:image/png;base64,@Model.PortfolioImage" width="200" />
+                                }
+
+                                <input type="hidden" name="OldImage" value="@Model.PortfolioImage" />
+
+                                <label>Yeni Resim Seç (İsteğe Bağlı):</label>
+                                <input type="file" name="NewImage" accept="image/*" class="form-control" />
+                            </div>
+
+
+                            <button type="submit" class="btn btn-info mt-3">Create Portfolio</button>
+                            <div id="ajaxResponseMessage" class="mt-2" style="display: none;"></div>
+
+                        </form>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

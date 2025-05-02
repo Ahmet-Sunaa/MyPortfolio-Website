@@ -1,0 +1,61 @@
+﻿@model List<MyPortfolio_Website.DAL.Entities.Expericence>
+
+@{
+	ViewData["Title"] = "Admin Page";
+	Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Expericence</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Expericence Update</div>
+					</div>
+					<div class="card-body">
+
+						@if (Model != null && Model.Any())
+						{
+							<table class="table mt-3">
+								<thead>
+									<tr>
+										<th scope="col">Title</th>
+										<th scope="col">Name</th>
+										<th scope="col">Description</th>
+										<th scope="col">Sil</th>
+										<th scope="col">Güncelle</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									@foreach (var item in Model)
+									{
+										<tr>
+											<td>@item.Title</td>
+											<td>@item.ExpericenceRole</td>
+											<td>@item.ExpericenceDesc</td>
+											<td><a href="/AdminExpericence/DeleteExpericence/@item.ExpericenceId" btn btn-danger">Sil</a></td>
+											<td><a href="/AdminExpericence/UpdateExpericence/@item.ExpericenceId" class="btn btn-success">Güncelle</a></td>
+										</tr>
+									}
+
+
+
+								</tbody>
+							</table>
+							<a href="/AdminExpericence/CreateExpericence/" class="btn btn-primary">Create A New Expericence</a>
+						}
+						else
+						{
+							<h1>There Is No Expericence</h1>
+							<a href="/AdminExpericence/CreateExpericence/" class="btn btn-primary">Create A New Expericence</a>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

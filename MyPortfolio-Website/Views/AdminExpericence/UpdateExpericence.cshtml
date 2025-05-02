@@ -1,0 +1,87 @@
+﻿@model MyPortfolio_Website.DAL.Entities.Expericence
+
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Expericence</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Expericence Update</div>
+                    </div>
+                    <div class="card-body">
+
+                        <form id="updateExpericenceForm" method="post">
+                            <div>
+                                <input type="hidden" name="ExpericenceId" value="@Model.ExpericenceId" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Name">Title</label>
+                                <input type="text" name="Title" value="@Model.Title" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description">Expericence Role</label>
+                                <textarea rows="2" name="ExpericenceRole" class="form-control">@Model.ExpericenceRole</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Title">Expericence Date</label>
+                                <input type="text" name="ExpericenceDate" value="@Model.ExpericenceDate" class="form-control" placeholder="@Model.ExpericenceDate" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Title">Expericence Desc</label>
+                                <input type="text" name="ExpericenceDesc" value="@Model.ExpericenceDesc" class="form-control" placeholder="@Model.ExpericenceDesc" />
+                            </div>
+
+                        </form>
+                        <div class="form-group">
+                            <button type="button" id="UpdateExpericenceAjax" class="btn btn-info mt-3">Update Expericence</button>
+                            <div id="ajaxResponseMessage" class="mt-2" style="display: none;"></div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+           $(document).ready(function () {
+                $("#UpdateExpericenceAjax").click(function (e) {
+                e.preventDefault();
+
+                        var formData = $("#updateExpericenceForm").serialize();
+                $.ajax({
+                        url: '@Url.Action("UpdateExpericenceAjax", "AdminExpericence")',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            $("#ajaxResponseMessage").css("color", "green").text(response.message).show();
+                        } else {
+                            $("#ajaxResponseMessage").css("color", "red").text(response.message).show();
+                        }
+                    },
+                    error: function () {
+                        $("#ajaxResponseMessage").css("color", "red").text("An error occurred while updating the scrap.").show();
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+

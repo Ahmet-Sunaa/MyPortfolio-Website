@@ -8,7 +8,8 @@ namespace MyPortfolio_Website.ViewComponents
         MyPortfolioDb HurdaciContext = new MyPortfolioDb();
         public IViewComponentResult Invoke()
         {
-            var values = HurdaciContext.Abouts.ToList();
+            //var values = HurdaciContext.Abouts.ToList();
+            var values = HurdaciContext.Abouts.First();
             return View(values);
         }
     }

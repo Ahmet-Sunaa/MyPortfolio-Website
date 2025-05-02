@@ -1,0 +1,47 @@
+﻿@model List<MyPortfolio_Website.DAL.Entities.Skill>
+
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Skill</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Skill Create</div>
+                    </div>
+                    <div class="card-body">
+
+                        <form method="post" >
+                            <div class="form-group">
+                                <label for="Title">Title</label>
+                                <input type="text" name="Title" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description">Skill Name</label>
+                                <input type="text" name="SkillName"  class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SubTitle1">Skill Point</label>
+                                <input type="text" name="SkillPoint"  class="form-control" placeholder="Nakit Ödeme" />
+                            </div>
+                            
+                            <button type="submit" class="btn btn-info mt-3">Create Skill</button>
+                            <div id="ajaxResponseMessage" class="mt-2" style="display: none;"></div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    

@@ -1,0 +1,134 @@
+﻿@model MyPortfolio_Website.DAL.Entities.Personal
+
+
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Personal Info</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Personal Info Update</div>
+                    </div>
+                    <div class="card-body">
+
+                        <form method="post" action="/AdminPersonals/updatePersonalAjax">
+                            <input type="hidden" name="PersonalId" value="@Model.PersonalId" />
+
+                            <div class="form-group">
+                                <label for="Title">Name</label>
+                                <input type="text" name="PersonalName" value="@Model.PersonalName" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Description">Position</label>
+                                <input type="text" name="PersonalPosition" value="@Model.PersonalPosition" class="form-control" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SubTitle1">Linkedin</label>
+                                <input type="text" name="PersonalLinkedin" value="@Model.PersonalLinkedin" class="form-control" placeholder="Nakit Ödeme" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SubTitleDescription1">Github</label>
+                                <input type="text" name="PersonalGithub" value="@Model.PersonalGithub" class="form-control" placeholder="Anında Nakit ödeme" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SubTitle2">Phone</label>
+                                <input type="text" name="PersonalPhone" value="@Model.PersonalPhone" class="form-control" placeholder="İletişim" />
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="SubTitle2">Cv Link</label>
+                                <input type="text" name="PersonalCv" value="@Model.PersonalCv" class="form-control" placeholder="İletişim" />
+                            </div>
+
+                            <h2>Profil Fotoğrafı</h2>
+
+                            @if (Model.PersonalImage != null)
+                            {
+                                <img src="data:image/png;base64,@Model.PersonalImage" alt="Profil Fotoğrafı" width="200" />
+                            }
+                            <div class="form-group">
+                                <label for="SubTitle2">Resim Seç</label>
+                                <input type="file" name="PersonalImage" accept="image/*"
+                            </div>
+
+                        </form>
+
+                        <div class="form-group">
+                            <button id="updatePersonalAjax" class="btn btn-info mt-3">Updated Personal Info</button>
+                            <div id="ajaxResponseMessage" class="mt-2" style="display: none;"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var existingImage = '@Html.Raw(Model.PersonalImage ?? "")';
+        console.log(existingImage);
+    $(document).ready(function () {
+        $('#updatePersonalAjax').click(function (e) {
+            e.preventDefault();
+
+            var fileInput = $('[name="PersonalImage"]')[0];
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+
+            if (file) {
+                reader.onloadend = function () {
+                    var base64Image = reader.result.split(',')[1];
+                    sendAjax(base64Image);
+                };
+                reader.readAsDataURL(file);
+            } else if (existingImage !== "") {
+                sendAjax(existingImage);
+            } else {
+                alert("Lütfen bir resim seçin.");
+            }
+        });
+
+        function sendAjax(base64Image) {
+            var PersonalData = {
+                PersonalId: $('[name="PersonalId"]').val(),
+                PersonalName: $('[name="PersonalName"]').val(),
+                PersonalPosition: $('[name="PersonalPosition"]').val(),
+                PersonalLinkedin: $('[name="PersonalLinkedin"]').val(),
+                PersonalGithub: $('[name="PersonalGithub"]').val(),
+                PersonalPhone: $('[name="PersonalPhone"]').val(),
+                PersonalCv: $('[name="PersonalCv"]').val(),
+                PersonalImage: base64Image
+            };
+
+            $.ajax({
+                url: '/AdminPersonals/updatePersonalAjax/',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(PersonalData),
+                success: function (response) {
+                    var messageDiv = $('#ajaxResponseMessage');
+                    messageDiv.show().removeClass('text-danger text-success')
+                        .addClass(response.success ? 'text-success' : 'text-danger')
+                        .text(response.message);
+                },
+                error: function () {
+                    $('#ajaxResponseMessage').show().removeClass('text-success').addClass('text-danger').text("Bir hata oluştu.");
+                }
+            });
+        }
+    });
+</script>
