@@ -1,3 +1,63 @@
+## Live: https://ahmetsuna.com.tr/
+---
+# EN
+# Personal Portfolio Website
+
+---
+
+## **Project Description**
+This project is a personal portfolio website that I designed to showcase my skills, projects, and experiences. Built with modern web development technologies, this site offers a stylish and responsive interface to effectively highlight my professional background.
+
+---
+
+## **Features**
+- **Responsive Design**: Compatible with all screen sizes including desktop, tablet, and mobile devices.
+- **Dynamic Content**: Easily add new projects, skills, and personal information.
+- **Project Showcase**: A structured section to display past projects with descriptions and links.
+- **Contact Form**: An integrated contact form for easy communication.
+- **Fast Performance**: Provides fast loading times and a smooth navigation experience.
+
+---
+
+## **Technologies Used**
+- **HTML5 & CSS3** – For structure and styling.
+- **JavaScript** – For interactivity and dynamic content loading.
+- **Bootstrap** – For responsive and mobile-friendly design.
+- **ASP.NET Core** *(if used)* – For backend integration and dynamic functionalities.
+- **jQuery** – For additional JavaScript functionalities and animations.
+
+---
+
+## **Installation Instructions**
+
+1. **Clone the Repository**
+   ```bash
+   git clone <repository-link>
+
+2. **Install Dependencies (If ASP.NET Core or another framework is used)  
+   ```bash
+   dotnet restore
+   dotnet build
+
+   ```
+
+3. **Run the Project**  
+   ```bash
+   dotnet run
+   ```
+
+4. **Open in Browser**  
+   ```bash
+   http://localhost:5000
+   ```
+#### **Project Structure**
+   - **Home Page**: Includes a general overview of the portfolio and personal information.
+   - **Projects**: A section that showcases my work, each with detailed descriptions.
+   - **Contact**: A section where users can reach out via the contact form.
+   - **About Me**: Provides information about my background and skills.
+
+---
+# TR
 ### Kişisel Portföy Web Sitesi
 
 ---
